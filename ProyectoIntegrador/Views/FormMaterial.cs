@@ -35,16 +35,22 @@ namespace ProyectoIntegrador.Views
             };
 
             string error = MaterialValidator.Validar(material);
-
             if (error != "")
             {
                 MessageBox.Show(error);
                 return;
             }
 
-            controller.Guardar(material);
-
-            MessageBox.Show(idSeleccionado == "" ? "Material guardado" : "Material actualizado");
+            if (idSeleccionado == "")
+            {
+                controller.Guardar(material);
+                MessageBox.Show("Material guardado");
+            }
+            else
+            {
+                controller.Actualizar(material); // ✅ Actualiza en lugar de duplicar
+                MessageBox.Show("Material actualizado");
+            }
 
             Limpiar();
             CargarMateriales();
@@ -61,14 +67,8 @@ namespace ProyectoIntegrador.Views
                 return;
             }
 
-            DialogResult resultado = MessageBox.Show(
-                "¿Desea eliminar este material?",
-                "Confirmación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (resultado == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea eliminar este material?", "Confirmación",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 controller.Eliminar(idSeleccionado);
                 MessageBox.Show("Material eliminado");
@@ -76,6 +76,7 @@ namespace ProyectoIntegrador.Views
                 CargarMateriales();
             }
         }
+        
 
         private void Limpiar()
         {
@@ -98,7 +99,7 @@ namespace ProyectoIntegrador.Views
 
                 dgvMateriales.Rows[fila].Cells["colNumero"].Value = contador;
                 dgvMateriales.Rows[fila].Cells["Id"].Value = material.Id;
-                dgvMateriales.Rows[fila].Cells["colNombre"].Value = material.Nombre;
+                dgvMateriales.Rows[fila].Cells["colTipoMaterial"].Value = material.Nombre;
                 dgvMateriales.Rows[fila].Cells["colCosto"].Value = material.CostoPorMetroCubico;
 
                 contador++;
@@ -113,7 +114,7 @@ namespace ProyectoIntegrador.Views
                     dgvMateriales.CurrentRow.Cells["Id"].Value.ToString();
 
                 txtNombre.Text =
-                    dgvMateriales.CurrentRow.Cells["colNombre"].Value.ToString();
+                    dgvMateriales.CurrentRow.Cells["colTipoMaterial"].Value.ToString();
 
                 txtCosto.Text =
                     dgvMateriales.CurrentRow.Cells["colCosto"].Value.ToString();

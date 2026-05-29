@@ -20,6 +20,11 @@ namespace ProyectoIntegrador.Controllers
             return repository.Leer();
         }
 
+        public void Actualizar(Material material)
+        {
+            repository.Actualizar(material);
+        }
+
         public void Eliminar(string id)
         {
             repository.Eliminar(id);

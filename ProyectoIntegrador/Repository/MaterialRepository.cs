@@ -26,11 +26,26 @@ namespace ProyectoIntegrador.Repository
             return repository.Leer();
         }
 
+        public void Actualizar(Material material)
+        {
+            List<Material> lista = Leer();
+            int index = lista.FindIndex(m => m.Id == material.Id);
+            if (index >= 0)
+                lista[index] = material;
+            repository.Guardar(lista);
+        }
+
         public void Eliminar(string id)
         {
             List<Material> lista = Leer();
-            lista.RemoveAll(m => m.Id == id);
-            repository.Guardar(lista);
+
+            Material material = lista.Find(m => m.Id == id);
+
+            if (material != null)
+            {
+                lista.Remove(material);
+                repository.Guardar(lista);
+            }
         }
     }
 }

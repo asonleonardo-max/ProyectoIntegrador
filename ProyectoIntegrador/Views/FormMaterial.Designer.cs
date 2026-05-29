@@ -37,18 +37,14 @@
             dgvMateriales = new DataGridView();
             colNumero = new DataGridViewTextBoxColumn();
             Id = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
+            colTipoMaterial = new DataGridViewTextBoxColumn();
             colCosto = new DataGridViewTextBoxColumn();
             btnCerrar = new PictureBox();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             btnEliminar = new PictureBox();
             btnGuardar = new PictureBox();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvMateriales).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnEliminar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnGuardar).BeginInit();
             SuspendLayout();
@@ -56,7 +52,7 @@
             // txtNombre
             // 
             txtNombre.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtNombre.Location = new Point(141, 356);
+            txtNombre.Location = new Point(88, 281);
             txtNombre.Margin = new Padding(4, 3, 4, 3);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(419, 30);
@@ -65,7 +61,7 @@
             // txtCosto
             // 
             txtCosto.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtCosto.Location = new Point(141, 461);
+            txtCosto.Location = new Point(88, 408);
             txtCosto.Margin = new Padding(4, 3, 4, 3);
             txtCosto.Name = "txtCosto";
             txtCosto.Size = new Size(419, 30);
@@ -75,23 +71,23 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(183, 327);
+            label1.Location = new Point(88, 252);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(96, 26);
+            label1.Size = new Size(179, 26);
             label1.TabIndex = 2;
-            label1.Text = "Nombre:";
+            label1.Text = "Tipo de material:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Yu Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(183, 432);
+            label2.Location = new Point(88, 379);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(75, 26);
+            label2.Size = new Size(185, 26);
             label2.TabIndex = 3;
-            label2.Text = "Costo:";
+            label2.Text = "Costo por unidad:";
             // 
             // dgvMateriales
             // 
@@ -105,7 +101,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvMateriales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvMateriales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMateriales.Columns.AddRange(new DataGridViewColumn[] { colNumero, Id, colNombre, colCosto });
+            dgvMateriales.Columns.AddRange(new DataGridViewColumn[] { colNumero, Id, colTipoMaterial, colCosto });
             dgvMateriales.Location = new Point(644, 186);
             dgvMateriales.Margin = new Padding(4, 3, 4, 3);
             dgvMateriales.Name = "dgvMateriales";
@@ -131,12 +127,12 @@
             Id.ReadOnly = true;
             Id.Visible = false;
             // 
-            // colNombre
+            // colTipoMaterial
             // 
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 6;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
+            colTipoMaterial.HeaderText = "Material";
+            colTipoMaterial.MinimumWidth = 6;
+            colTipoMaterial.Name = "colTipoMaterial";
+            colTipoMaterial.ReadOnly = true;
             // 
             // colCosto
             // 
@@ -157,26 +153,6 @@
             btnCerrar.TabIndex = 24;
             btnCerrar.TabStop = false;
             btnCerrar.Click += btnCerrar_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(141, 322);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(43, 31);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 25;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(142, 429);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(43, 31);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 26;
-            pictureBox2.TabStop = false;
             // 
             // btnEliminar
             // 
@@ -221,8 +197,6 @@
             Controls.Add(label3);
             Controls.Add(btnGuardar);
             Controls.Add(btnEliminar);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
             Controls.Add(btnCerrar);
             Controls.Add(dgvMateriales);
             Controls.Add(label2);
@@ -237,8 +211,6 @@
             Text = "FormMaterial";
             ((System.ComponentModel.ISupportInitialize)dgvMateriales).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnEliminar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnGuardar).EndInit();
             ResumeLayout(false);
@@ -253,14 +225,12 @@
         private Label label2;
         private DataGridView dgvMateriales;
         private PictureBox btnCerrar;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private PictureBox btnEliminar;
         private PictureBox btnGuardar;
         private Label label3;
         private DataGridViewTextBoxColumn colNumero;
         private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colTipoMaterial;
         private DataGridViewTextBoxColumn colCosto;
     }
 }
