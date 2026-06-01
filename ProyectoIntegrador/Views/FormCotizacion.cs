@@ -1,12 +1,8 @@
 ﻿using ProyectoIntegrador.Controllers;
 using ProyectoIntegrador.Models;
-using System.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoIntegrador.Views
@@ -16,6 +12,7 @@ namespace ProyectoIntegrador.Views
         CotizacionController cotizacionController = new CotizacionController();
         ClienteController clienteController = new ClienteController();
         MaterialController materialController = new MaterialController();
+        TerrenoController terrenoController = new TerrenoController();
 
         string idSeleccionado = "";
 
@@ -37,6 +34,20 @@ namespace ProyectoIntegrador.Views
             cbListaMateriales.DataSource = materiales;
             cbListaMateriales.DisplayMember = "Nombre";
             cbListaMateriales.ValueMember = "Id";
+
+            List<Terreno> terrenos = terrenoController.Leer();
+            cbListaTerrenos.DataSource = terrenos;
+            cbListaTerrenos.DisplayMember = "Nombre";
+            cbListaTerrenos.ValueMember = "Id";
+        }
+
+        // Cuando selecciona terreno → carga el volumen en numCantidad
+        private void CbListaTerrenos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbListaTerrenos.SelectedItem == null) return;
+
+            Terreno terreno = (Terreno)cbListaTerrenos.SelectedItem;
+            numCantidad.Value = (decimal)terreno.VolumenCalculado;
         }
 
         private void CargarTabla()
@@ -87,6 +98,13 @@ namespace ProyectoIntegrador.Views
                 if (cbListaClientes.SelectedItem == null)
                 {
                     MessageBox.Show("Selecciona un cliente.", "Campo requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (cbListaTerrenos.SelectedItem == null)
+                {
+                    MessageBox.Show("Selecciona un terreno.", "Campo requerido",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -180,7 +198,7 @@ namespace ProyectoIntegrador.Views
         private void Limpiar()
         {
             idSeleccionado = "";
-            numCantidad.Value = 1;
+            numCantidad.Value = 0;
             checkBoxEstado.Checked = false;
             dateFecha.Value = DateTime.Now;
         }

@@ -264,8 +264,8 @@
         private ListBox lstCoordenadas;
         private PictureBox btnAgregar;
         private PictureBox btnCalcular;
-        //private OxyPlot.WindowsForms.PlotView plotView1;
         private TextBox txtNombre;
         private Label label5;
+
     }
 }

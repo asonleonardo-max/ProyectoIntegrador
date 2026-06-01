@@ -160,7 +160,7 @@ namespace ProyectoIntegrador.Views
             txtNombre.Clear();
             lbVolumen.Text = "Volumen calculado:";
             volumenCalculado = 0;
-           // plotView1.Model = null;
+            // plotView1.Model = null;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
