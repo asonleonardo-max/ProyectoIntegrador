@@ -34,7 +34,6 @@
             label2 = new Label();
             txtPassword = new TextBox();
             btnIniciar = new Button();
-            btnRegistrar = new Button();
             label5 = new Label();
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -94,32 +93,18 @@
             // 
             // btnIniciar
             // 
+            btnIniciar.BackColor = SystemColors.Desktop;
             btnIniciar.BackgroundImageLayout = ImageLayout.Zoom;
             btnIniciar.Cursor = Cursors.Hand;
             btnIniciar.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnIniciar.Location = new Point(103, 613);
+            btnIniciar.ForeColor = SystemColors.Control;
+            btnIniciar.Location = new Point(103, 669);
             btnIniciar.Name = "btnIniciar";
             btnIniciar.Size = new Size(561, 74);
             btnIniciar.TabIndex = 7;
             btnIniciar.Text = "Iniciar";
-            btnIniciar.UseVisualStyleBackColor = true;
+            btnIniciar.UseVisualStyleBackColor = false;
             btnIniciar.Click += btnIniciar_Click;
-            // 
-            // btnRegistrar
-            // 
-            btnRegistrar.BackColor = SystemColors.ControlText;
-            btnRegistrar.Cursor = Cursors.Hand;
-            btnRegistrar.FlatAppearance.BorderSize = 0;
-            btnRegistrar.FlatStyle = FlatStyle.Flat;
-            btnRegistrar.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistrar.ForeColor = SystemColors.ButtonFace;
-            btnRegistrar.Location = new Point(103, 717);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(561, 74);
-            btnRegistrar.TabIndex = 7;
-            btnRegistrar.Text = "Registrar";
-            btnRegistrar.UseVisualStyleBackColor = false;
-            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // label5
             // 
@@ -156,7 +141,7 @@
             linkOlvideContrasena.AutoSize = true;
             linkOlvideContrasena.Cursor = Cursors.Hand;
             linkOlvideContrasena.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            linkOlvideContrasena.Location = new Point(187, 817);
+            linkOlvideContrasena.Location = new Point(187, 775);
             linkOlvideContrasena.Name = "linkOlvideContrasena";
             linkOlvideContrasena.Size = new Size(403, 32);
             linkOlvideContrasena.TabIndex = 14;
@@ -226,7 +211,6 @@
             PanelLogin.Controls.Add(pictureBox2);
             PanelLogin.Controls.Add(txtPassword);
             PanelLogin.Controls.Add(pictureBox3);
-            PanelLogin.Controls.Add(btnRegistrar);
             PanelLogin.Controls.Add(btnIniciar);
             PanelLogin.Location = new Point(144, 33);
             PanelLogin.Name = "PanelLogin";
@@ -269,7 +253,6 @@
         private Label label2;
         private TextBox txtPassword;
         private Button btnIniciar;
-        private Button btnRegistrar;
         private Label label5;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;

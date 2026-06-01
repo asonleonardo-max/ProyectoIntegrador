@@ -28,140 +28,332 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCotizacion));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
             cbListaMateriales = new ComboBox();
             cbListaClientes = new ComboBox();
-            txtVolumenCalculado = new TextBox();
-            txtCostoTotal = new TextBox();
-            btnCalcularCostoCotizacion = new Button();
-            btnGenerarCotizacion = new Button();
-            btnConsultarCotizaciones = new Button();
-            lstHistorialCotizaciones = new ListBox();
+            label5 = new Label();
+            dateFecha = new DateTimePicker();
+            label6 = new Label();
+            checkBoxEstado = new CheckBox();
+            dgvCotizacion = new DataGridView();
+            label3 = new Label();
+            numCantidad = new NumericUpDown();
+            btnGuardar = new PictureBox();
+            btnEliminar = new PictureBox();
+            btnCerrar = new PictureBox();
+            colId = new DataGridViewTextBoxColumn();
+            colClienteId = new DataGridViewTextBoxColumn();
+            colCliente = new DataGridViewTextBoxColumn();
+            colMaterialId = new DataGridViewTextBoxColumn();
+            colMaterial = new DataGridViewTextBoxColumn();
+            colCantidad = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            colSubtotal = new DataGridViewTextBoxColumn();
+            colIVA = new DataGridViewTextBoxColumn();
+            colTotal = new DataGridViewTextBoxColumn();
+            colFecha = new DataGridViewTextBoxColumn();
+            colEstado = new DataGridViewCheckBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dgvCotizacion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnGuardar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnEliminar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(52, 66);
+            label1.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(100, 252);
             label1.Name = "label1";
-            label1.Size = new Size(146, 20);
+            label1.Size = new Size(91, 31);
             label1.TabIndex = 0;
-            label1.Text = "Seleccione el Cliente";
+            label1.Text = "Cliente:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(52, 135);
+            label2.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(95, 435);
             label2.Name = "label2";
-            label2.Size = new Size(155, 20);
+            label2.Size = new Size(106, 31);
             label2.TabIndex = 1;
-            label2.Text = "Seleccione el Material";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(61, 208);
-            label3.Name = "label3";
-            label3.Size = new Size(137, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Volumen Calculado";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(81, 270);
-            label4.Name = "label4";
-            label4.Size = new Size(84, 20);
-            label4.TabIndex = 3;
-            label4.Text = "Costo Total";
+            label2.Text = "Material:";
             // 
             // cbListaMateriales
             // 
+            cbListaMateriales.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbListaMateriales.FormattingEnabled = true;
-            cbListaMateriales.Location = new Point(255, 135);
+            cbListaMateriales.Location = new Point(253, 427);
             cbListaMateriales.Name = "cbListaMateriales";
-            cbListaMateriales.Size = new Size(167, 28);
+            cbListaMateriales.Size = new Size(308, 39);
             cbListaMateriales.TabIndex = 4;
             // 
             // cbListaClientes
             // 
+            cbListaClientes.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbListaClientes.FormattingEnabled = true;
-            cbListaClientes.Location = new Point(255, 66);
+            cbListaClientes.Location = new Point(253, 249);
             cbListaClientes.Name = "cbListaClientes";
-            cbListaClientes.Size = new Size(167, 28);
+            cbListaClientes.Size = new Size(308, 39);
             cbListaClientes.TabIndex = 5;
             // 
-            // txtVolumenCalculado
+            // label5
             // 
-            txtVolumenCalculado.Location = new Point(255, 197);
-            txtVolumenCalculado.Name = "txtVolumenCalculado";
-            txtVolumenCalculado.Size = new Size(167, 27);
-            txtVolumenCalculado.TabIndex = 6;
+            label5.AutoSize = true;
+            label5.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(103, 343);
+            label5.Name = "label5";
+            label5.Size = new Size(79, 31);
+            label5.TabIndex = 11;
+            label5.Text = "Fecha:";
             // 
-            // txtCostoTotal
+            // dateFecha
             // 
-            txtCostoTotal.Location = new Point(255, 263);
-            txtCostoTotal.Name = "txtCostoTotal";
-            txtCostoTotal.Size = new Size(167, 27);
-            txtCostoTotal.TabIndex = 7;
+            dateFecha.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dateFecha.Location = new Point(253, 337);
+            dateFecha.Name = "dateFecha";
+            dateFecha.Size = new Size(308, 38);
+            dateFecha.TabIndex = 12;
             // 
-            // btnCalcularCostoCotizacion
+            // label6
             // 
-            btnCalcularCostoCotizacion.Location = new Point(269, 369);
-            btnCalcularCostoCotizacion.Name = "btnCalcularCostoCotizacion";
-            btnCalcularCostoCotizacion.Size = new Size(120, 29);
-            btnCalcularCostoCotizacion.TabIndex = 8;
-            btnCalcularCostoCotizacion.Text = "Calcular Costo";
-            btnCalcularCostoCotizacion.UseVisualStyleBackColor = true;
+            label6.AutoSize = true;
+            label6.Font = new Font("Century Gothic", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(559, 69);
+            label6.Name = "label6";
+            label6.Size = new Size(383, 40);
+            label6.TabIndex = 13;
+            label6.Text = "Resgrito de cotización";
             // 
-            // btnGenerarCotizacion
+            // checkBoxEstado
             // 
-            btnGenerarCotizacion.Location = new Point(424, 369);
-            btnGenerarCotizacion.Name = "btnGenerarCotizacion";
-            btnGenerarCotizacion.Size = new Size(144, 29);
-            btnGenerarCotizacion.TabIndex = 9;
-            btnGenerarCotizacion.Text = "Generar Cotización";
-            btnGenerarCotizacion.UseVisualStyleBackColor = true;
+            checkBoxEstado.AutoSize = true;
+            checkBoxEstado.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBoxEstado.Location = new Point(95, 606);
+            checkBoxEstado.Name = "checkBoxEstado";
+            checkBoxEstado.Size = new Size(106, 35);
+            checkBoxEstado.TabIndex = 14;
+            checkBoxEstado.Text = "Estado";
+            checkBoxEstado.UseVisualStyleBackColor = true;
             // 
-            // btnConsultarCotizaciones
+            // dgvCotizacion
             // 
-            btnConsultarCotizaciones.Location = new Point(610, 369);
-            btnConsultarCotizaciones.Name = "btnConsultarCotizaciones";
-            btnConsultarCotizaciones.Size = new Size(154, 29);
-            btnConsultarCotizaciones.TabIndex = 10;
-            btnConsultarCotizaciones.Text = "Consultar Cotización";
-            btnConsultarCotizaciones.UseVisualStyleBackColor = true;
+            dgvCotizacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCotizacion.Columns.AddRange(new DataGridViewColumn[] { colId, colClienteId, colCliente, colMaterialId, colMaterial, colCantidad, colPrecio, colSubtotal, colIVA, colTotal, colFecha, colEstado });
+            dgvCotizacion.Location = new Point(620, 194);
+            dgvCotizacion.Name = "dgvCotizacion";
+            dgvCotizacion.RowHeadersVisible = false;
+            dgvCotizacion.RowHeadersWidth = 51;
+            dgvCotizacion.Size = new Size(820, 502);
+            dgvCotizacion.TabIndex = 15;
+            dgvCotizacion.CellClick += dgvCotizacion_CellClick;
             // 
-            // lstHistorialCotizaciones
+            // label3
             // 
-            lstHistorialCotizaciones.FormattingEnabled = true;
-            lstHistorialCotizaciones.Location = new Point(464, 66);
-            lstHistorialCotizaciones.Name = "lstHistorialCotizaciones";
-            lstHistorialCotizaciones.Size = new Size(307, 224);
-            lstHistorialCotizaciones.TabIndex = 11;
+            label3.AutoSize = true;
+            label3.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(92, 515);
+            label3.Name = "label3";
+            label3.Size = new Size(113, 31);
+            label3.TabIndex = 16;
+            label3.Text = "Cantidad:";
+            // 
+            // numCantidad
+            // 
+            numCantidad.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            numCantidad.Location = new Point(253, 513);
+            numCantidad.Name = "numCantidad";
+            numCantidad.Size = new Size(308, 38);
+            numCantidad.TabIndex = 17;
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.Cursor = Cursors.Hand;
+            btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
+            btnGuardar.Location = new Point(73, 823);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(78, 70);
+            btnGuardar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnGuardar.TabIndex = 18;
+            btnGuardar.TabStop = false;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
+            btnEliminar.Location = new Point(205, 821);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(82, 72);
+            btnEliminar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnEliminar.TabIndex = 28;
+            btnEliminar.TabStop = false;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(1392, 860);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(76, 59);
+            btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnCerrar.TabIndex = 29;
+            btnCerrar.TabStop = false;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "Id";
+            colId.HeaderText = "id";
+            colId.MinimumWidth = 6;
+            colId.Name = "colId";
+            colId.Visible = false;
+            colId.Width = 125;
+            // 
+            // colClienteId
+            // 
+            colClienteId.DataPropertyName = "ClienteId";
+            colClienteId.HeaderText = "ClienteId";
+            colClienteId.MinimumWidth = 6;
+            colClienteId.Name = "colClienteId";
+            colClienteId.Visible = false;
+            colClienteId.Width = 125;
+            // 
+            // colCliente
+            // 
+            colCliente.DataPropertyName = "ClienteNombre";
+            colCliente.HeaderText = "Cliente";
+            colCliente.MinimumWidth = 6;
+            colCliente.Name = "colCliente";
+            colCliente.Width = 125;
+            // 
+            // colMaterialId
+            // 
+            colMaterialId.DataPropertyName = "MaterialId";
+            colMaterialId.HeaderText = "MaterialId";
+            colMaterialId.MinimumWidth = 6;
+            colMaterialId.Name = "colMaterialId";
+            colMaterialId.Visible = false;
+            colMaterialId.Width = 125;
+            // 
+            // colMaterial
+            // 
+            colMaterial.DataPropertyName = "NombreMaterial";
+            colMaterial.HeaderText = "Material";
+            colMaterial.MinimumWidth = 6;
+            colMaterial.Name = "colMaterial";
+            colMaterial.Width = 125;
+            // 
+            // colCantidad
+            // 
+            colCantidad.DataPropertyName = "Cantidad";
+            dataGridViewCellStyle1.NullValue = null;
+            colCantidad.DefaultCellStyle = dataGridViewCellStyle1;
+            colCantidad.HeaderText = "Cantidad (m³)";
+            colCantidad.MinimumWidth = 6;
+            colCantidad.Name = "colCantidad";
+            colCantidad.Width = 125;
+            // 
+            // colPrecio
+            // 
+            colPrecio.DataPropertyName = "PrecioUnitario";
+            dataGridViewCellStyle2.Format = "C0";
+            dataGridViewCellStyle2.NullValue = null;
+            colPrecio.DefaultCellStyle = dataGridViewCellStyle2;
+            colPrecio.HeaderText = "Precio/m³";
+            colPrecio.MinimumWidth = 6;
+            colPrecio.Name = "colPrecio";
+            colPrecio.Width = 125;
+            // 
+            // colSubtotal
+            // 
+            colSubtotal.DataPropertyName = "Subtotal";
+            dataGridViewCellStyle3.Format = "C0";
+            dataGridViewCellStyle3.NullValue = null;
+            colSubtotal.DefaultCellStyle = dataGridViewCellStyle3;
+            colSubtotal.HeaderText = "Subtotal";
+            colSubtotal.MinimumWidth = 6;
+            colSubtotal.Name = "colSubtotal";
+            colSubtotal.Width = 125;
+            // 
+            // colIVA
+            // 
+            colIVA.DataPropertyName = "IVA";
+            dataGridViewCellStyle4.Format = "C0";
+            dataGridViewCellStyle4.NullValue = null;
+            colIVA.DefaultCellStyle = dataGridViewCellStyle4;
+            colIVA.HeaderText = "IVA (19%)";
+            colIVA.MinimumWidth = 6;
+            colIVA.Name = "colIVA";
+            colIVA.Width = 125;
+            // 
+            // colTotal
+            // 
+            colTotal.DataPropertyName = "Total";
+            dataGridViewCellStyle5.Format = "C0";
+            dataGridViewCellStyle5.NullValue = null;
+            colTotal.DefaultCellStyle = dataGridViewCellStyle5;
+            colTotal.HeaderText = "Total";
+            colTotal.MinimumWidth = 6;
+            colTotal.Name = "colTotal";
+            colTotal.Width = 125;
+            // 
+            // colFecha
+            // 
+            colFecha.DataPropertyName = "Fecha";
+            dataGridViewCellStyle6.Format = "g";
+            dataGridViewCellStyle6.NullValue = null;
+            colFecha.DefaultCellStyle = dataGridViewCellStyle6;
+            colFecha.HeaderText = "Fecha";
+            colFecha.MinimumWidth = 6;
+            colFecha.Name = "colFecha";
+            colFecha.Width = 125;
+            // 
+            // colEstado
+            // 
+            colEstado.DataPropertyName = "Activa";
+            colEstado.HeaderText = "Estado";
+            colEstado.MinimumWidth = 6;
+            colEstado.Name = "colEstado";
+            colEstado.Width = 125;
             // 
             // FormCotizacion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(lstHistorialCotizaciones);
-            Controls.Add(btnConsultarCotizaciones);
-            Controls.Add(btnGenerarCotizacion);
-            Controls.Add(btnCalcularCostoCotizacion);
-            Controls.Add(txtCostoTotal);
-            Controls.Add(txtVolumenCalculado);
+            ClientSize = new Size(1500, 950);
+            Controls.Add(btnCerrar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnGuardar);
+            Controls.Add(numCantidad);
+            Controls.Add(label3);
+            Controls.Add(dgvCotizacion);
+            Controls.Add(checkBoxEstado);
+            Controls.Add(label6);
+            Controls.Add(dateFecha);
+            Controls.Add(label5);
             Controls.Add(cbListaClientes);
             Controls.Add(cbListaMateriales);
-            Controls.Add(label4);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormCotizacion";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormCotizacion";
+            ((System.ComponentModel.ISupportInitialize)dgvCotizacion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numCantidad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnGuardar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnEliminar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -170,15 +362,29 @@
 
         private Label label1;
         private Label label2;
-        private Label label3;
-        private Label label4;
         private ComboBox cbListaMateriales;
         private ComboBox cbListaClientes;
-        private TextBox txtVolumenCalculado;
-        private TextBox txtCostoTotal;
-        private Button btnCalcularCostoCotizacion;
-        private Button btnGenerarCotizacion;
-        private Button btnConsultarCotizaciones;
-        private ListBox lstHistorialCotizaciones;
+        private Label label5;
+        private DateTimePicker dateFecha;
+        private Label label6;
+        private CheckBox checkBoxEstado;
+        private DataGridView dgvCotizacion;
+        private Label label3;
+        private NumericUpDown numCantidad;
+        private PictureBox btnGuardar;
+        private PictureBox btnEliminar;
+        private PictureBox btnCerrar;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colClienteId;
+        private DataGridViewTextBoxColumn colCliente;
+        private DataGridViewTextBoxColumn colMaterialId;
+        private DataGridViewTextBoxColumn colMaterial;
+        private DataGridViewTextBoxColumn colCantidad;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewTextBoxColumn colSubtotal;
+        private DataGridViewTextBoxColumn colIVA;
+        private DataGridViewTextBoxColumn colTotal;
+        private DataGridViewTextBoxColumn colFecha;
+        private DataGridViewCheckBoxColumn colEstado;
     }
 }
