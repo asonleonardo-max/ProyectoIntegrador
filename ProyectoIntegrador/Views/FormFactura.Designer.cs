@@ -28,90 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFactura));
             label1 = new Label();
-            label2 = new Label();
             cbListaCotizaciones = new ComboBox();
-            btnGenerarFactura = new Button();
-            btnConsultarFacturas = new Button();
-            btnCambiarEstadoFactura = new Button();
-            lstHistorialFacturas = new ListBox();
+            label3 = new Label();
+            dgvFactura = new DataGridView();
+            btnGuardar = new PictureBox();
+            btnEliminar = new PictureBox();
+            btnCerrar = new PictureBox();
+            btnImprimir = new PictureBox();
+            btnFactura = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)dgvFactura).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnGuardar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnEliminar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnImprimir).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnFactura).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(30, 87);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(77, 268);
             label1.Name = "label1";
-            label1.Size = new Size(159, 20);
+            label1.Size = new Size(234, 25);
             label1.TabIndex = 0;
             label1.Text = "Seleccionar Cotización";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(84, 189);
-            label2.Name = "label2";
-            label2.Size = new Size(105, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Estado Factura";
-            // 
             // cbListaCotizaciones
             // 
+            cbListaCotizaciones.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cbListaCotizaciones.FormattingEnabled = true;
-            cbListaCotizaciones.Location = new Point(219, 87);
+            cbListaCotizaciones.Location = new Point(349, 265);
             cbListaCotizaciones.Name = "cbListaCotizaciones";
-            cbListaCotizaciones.Size = new Size(151, 28);
+            cbListaCotizaciones.Size = new Size(250, 33);
             cbListaCotizaciones.TabIndex = 2;
             // 
-            // btnGenerarFactura
+            // label3
             // 
-            btnGenerarFactura.Location = new Point(437, 367);
-            btnGenerarFactura.Name = "btnGenerarFactura";
-            btnGenerarFactura.Size = new Size(94, 29);
-            btnGenerarFactura.TabIndex = 3;
-            btnGenerarFactura.Text = "Facturar";
-            btnGenerarFactura.UseVisualStyleBackColor = true;
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(624, 71);
+            label3.Name = "label3";
+            label3.Size = new Size(252, 47);
+            label3.TabIndex = 7;
+            label3.Text = "Facturación";
             // 
-            // btnConsultarFacturas
+            // dgvFactura
             // 
-            btnConsultarFacturas.Location = new Point(591, 367);
-            btnConsultarFacturas.Name = "btnConsultarFacturas";
-            btnConsultarFacturas.Size = new Size(141, 29);
-            btnConsultarFacturas.TabIndex = 4;
-            btnConsultarFacturas.Text = "Consultar Factura";
-            btnConsultarFacturas.UseVisualStyleBackColor = true;
+            dgvFactura.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFactura.Location = new Point(707, 244);
+            dgvFactura.Name = "dgvFactura";
+            dgvFactura.RowHeadersWidth = 51;
+            dgvFactura.Size = new Size(754, 477);
+            dgvFactura.TabIndex = 8;
             // 
-            // btnCambiarEstadoFactura
+            // btnGuardar
             // 
-            btnCambiarEstadoFactura.Location = new Point(219, 189);
-            btnCambiarEstadoFactura.Name = "btnCambiarEstadoFactura";
-            btnCambiarEstadoFactura.Size = new Size(85, 29);
-            btnCambiarEstadoFactura.TabIndex = 5;
-            btnCambiarEstadoFactura.Text = "Cambiar";
-            btnCambiarEstadoFactura.UseVisualStyleBackColor = true;
+            btnGuardar.Cursor = Cursors.Hand;
+            btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
+            btnGuardar.Location = new Point(44, 853);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(82, 72);
+            btnGuardar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnGuardar.TabIndex = 29;
+            btnGuardar.TabStop = false;
             // 
-            // lstHistorialFacturas
+            // btnEliminar
             // 
-            lstHistorialFacturas.FormattingEnabled = true;
-            lstHistorialFacturas.Location = new Point(437, 42);
-            lstHistorialFacturas.Name = "lstHistorialFacturas";
-            lstHistorialFacturas.Size = new Size(295, 244);
-            lstHistorialFacturas.TabIndex = 6;
+            btnEliminar.Cursor = Cursors.Hand;
+            btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
+            btnEliminar.Location = new Point(178, 853);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(82, 72);
+            btnEliminar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnEliminar.TabIndex = 30;
+            btnEliminar.TabStop = false;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(1361, 872);
+            btnCerrar.Margin = new Padding(4, 3, 4, 3);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(100, 53);
+            btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
+            btnCerrar.TabIndex = 31;
+            btnCerrar.TabStop = false;
+            // 
+            // btnImprimir
+            // 
+            btnImprimir.Cursor = Cursors.Hand;
+            btnImprimir.Image = (Image)resources.GetObject("btnImprimir.Image");
+            btnImprimir.Location = new Point(442, 853);
+            btnImprimir.Name = "btnImprimir";
+            btnImprimir.Size = new Size(82, 72);
+            btnImprimir.SizeMode = PictureBoxSizeMode.Zoom;
+            btnImprimir.TabIndex = 32;
+            btnImprimir.TabStop = false;
+            // 
+            // btnFactura
+            // 
+            btnFactura.Cursor = Cursors.Hand;
+            btnFactura.Image = (Image)resources.GetObject("btnFactura.Image");
+            btnFactura.Location = new Point(311, 853);
+            btnFactura.Name = "btnFactura";
+            btnFactura.Size = new Size(82, 72);
+            btnFactura.SizeMode = PictureBoxSizeMode.Zoom;
+            btnFactura.TabIndex = 33;
+            btnFactura.TabStop = false;
             // 
             // FormFactura
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(lstHistorialFacturas);
-            Controls.Add(btnCambiarEstadoFactura);
-            Controls.Add(btnConsultarFacturas);
-            Controls.Add(btnGenerarFactura);
+            BackColor = SystemColors.MenuBar;
+            ClientSize = new Size(1500, 950);
+            Controls.Add(btnFactura);
+            Controls.Add(btnImprimir);
+            Controls.Add(btnCerrar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnGuardar);
+            Controls.Add(dgvFactura);
+            Controls.Add(label3);
             Controls.Add(cbListaCotizaciones);
-            Controls.Add(label2);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormFactura";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormFactura";
+            ((System.ComponentModel.ISupportInitialize)dgvFactura).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnGuardar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnEliminar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnImprimir).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnFactura).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -119,11 +172,13 @@
         #endregion
 
         private Label label1;
-        private Label label2;
         private ComboBox cbListaCotizaciones;
-        private Button btnGenerarFactura;
-        private Button btnConsultarFacturas;
-        private Button btnCambiarEstadoFactura;
-        private ListBox lstHistorialFacturas;
+        private Label label3;
+        private DataGridView dgvFactura;
+        private PictureBox btnGuardar;
+        private PictureBox btnEliminar;
+        private PictureBox btnCerrar;
+        private PictureBox btnImprimir;
+        private PictureBox btnFactura;
     }
 }

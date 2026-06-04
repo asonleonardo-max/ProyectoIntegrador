@@ -157,7 +157,7 @@
             dgvUsuarios.RowHeadersVisible = false;
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 28;
-            dgvUsuarios.Size = new Size(621, 441);
+            dgvUsuarios.Size = new Size(775, 527);
             dgvUsuarios.TabIndex = 19;
             dgvUsuarios.CellClick += dgvUsuarios_CellClick;
             // 
@@ -247,7 +247,7 @@
             // 
             btnCerrar.Cursor = Cursors.Hand;
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(1274, 715);
+            btnCerrar.Location = new Point(1388, 865);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(83, 52);
             btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -259,7 +259,7 @@
             // 
             btnCambiarEstado.Cursor = Cursors.Hand;
             btnCambiarEstado.Image = (Image)resources.GetObject("btnCambiarEstado.Image");
-            btnCambiarEstado.Location = new Point(356, 637);
+            btnCambiarEstado.Location = new Point(352, 805);
             btnCambiarEstado.Name = "btnCambiarEstado";
             btnCambiarEstado.Size = new Size(75, 68);
             btnCambiarEstado.SizeMode = PictureBoxSizeMode.Zoom;
@@ -271,7 +271,7 @@
             // 
             btnGuardar.Cursor = Cursors.Hand;
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
-            btnGuardar.Location = new Point(93, 637);
+            btnGuardar.Location = new Point(89, 805);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(85, 68);
             btnGuardar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -283,7 +283,7 @@
             // 
             btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
-            btnEliminar.Location = new Point(224, 637);
+            btnEliminar.Location = new Point(220, 805);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(73, 68);
             btnEliminar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -296,7 +296,7 @@
             linkRestablecerContrasena.AutoSize = true;
             linkRestablecerContrasena.Cursor = Cursors.Hand;
             linkRestablecerContrasena.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            linkRestablecerContrasena.Location = new Point(51, 727);
+            linkRestablecerContrasena.Location = new Point(47, 895);
             linkRestablecerContrasena.Name = "linkRestablecerContrasena";
             linkRestablecerContrasena.Size = new Size(450, 22);
             linkRestablecerContrasena.TabIndex = 27;
@@ -308,7 +308,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(1400, 800);
+            ClientSize = new Size(1500, 950);
             Controls.Add(linkRestablecerContrasena);
             Controls.Add(btnEliminar);
             Controls.Add(btnGuardar);

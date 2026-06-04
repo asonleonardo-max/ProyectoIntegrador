@@ -71,8 +71,7 @@ namespace ProyectoIntegrador.Views
 
         private void btnFacturas_Click(object sender, EventArgs e)
         {
-            FormFactura formFactura = new FormFactura();
-            formFactura.Show();
+            AbriFormulario(new FormFactura());
 
         }
 

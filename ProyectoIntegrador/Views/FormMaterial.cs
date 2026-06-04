@@ -76,7 +76,7 @@ namespace ProyectoIntegrador.Views
                 CargarMateriales();
             }
         }
-        
+
 
         private void Limpiar()
         {
@@ -125,5 +125,7 @@ namespace ProyectoIntegrador.Views
         {
             this.Close();
         }
+
+        
     }
 }

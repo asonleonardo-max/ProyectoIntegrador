@@ -107,7 +107,7 @@
             dgvMateriales.Name = "dgvMateriales";
             dgvMateriales.RowHeadersVisible = false;
             dgvMateriales.RowHeadersWidth = 51;
-            dgvMateriales.Size = new Size(684, 411);
+            dgvMateriales.Size = new Size(728, 498);
             dgvMateriales.TabIndex = 6;
             dgvMateriales.CellClick += dgvMateriales_CellClick;
             // 
@@ -145,7 +145,7 @@
             // 
             btnCerrar.Cursor = Cursors.Hand;
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(1258, 718);
+            btnCerrar.Location = new Point(1371, 857);
             btnCerrar.Margin = new Padding(4, 3, 4, 3);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(100, 53);
@@ -158,7 +158,7 @@
             // 
             btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
-            btnEliminar.Location = new Point(309, 630);
+            btnEliminar.Location = new Point(176, 838);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(82, 72);
             btnEliminar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -170,7 +170,7 @@
             // 
             btnGuardar.Cursor = Cursors.Hand;
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
-            btnGuardar.Location = new Point(142, 630);
+            btnGuardar.Location = new Point(50, 838);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(82, 72);
             btnGuardar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -193,7 +193,7 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(1400, 800);
+            ClientSize = new Size(1500, 950);
             Controls.Add(label3);
             Controls.Add(btnGuardar);
             Controls.Add(btnEliminar);

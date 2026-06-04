@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCliente));
             txtNombre = new TextBox();
             txtIdentificacion = new TextBox();
@@ -148,20 +148,20 @@
             dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { colNumero, colNombre, colIdentificacion, colTelefono, colCorreo, ID });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dgvClientes.DefaultCellStyle = dataGridViewCellStyle1;
             dgvClientes.Location = new Point(589, 183);
             dgvClientes.Margin = new Padding(4, 3, 4, 3);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.RowHeadersWidth = 51;
-            dgvClientes.Size = new Size(689, 416);
+            dgvClientes.Size = new Size(814, 517);
             dgvClientes.TabIndex = 10;
             dgvClientes.CellClick += dgvClientes_CellClick;
             // 
@@ -268,7 +268,7 @@
             // 
             btnGuardar.Cursor = Cursors.Hand;
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
-            btnGuardar.Location = new Point(82, 659);
+            btnGuardar.Location = new Point(64, 850);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(78, 70);
             btnGuardar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -280,7 +280,7 @@
             // 
             btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.Image = (Image)resources.GetObject("btnEliminar.Image");
-            btnEliminar.Location = new Point(218, 659);
+            btnEliminar.Location = new Point(200, 850);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(72, 70);
             btnEliminar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -292,7 +292,7 @@
             // 
             btnCerrar.Cursor = Cursors.Hand;
             btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
-            btnCerrar.Location = new Point(1289, 708);
+            btnCerrar.Location = new Point(1390, 850);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(76, 59);
             btnCerrar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -305,7 +305,7 @@
             AutoScaleDimensions = new SizeF(11F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(1400, 800);
+            ClientSize = new Size(1500, 950);
             Controls.Add(btnCerrar);
             Controls.Add(btnEliminar);
             Controls.Add(btnGuardar);
