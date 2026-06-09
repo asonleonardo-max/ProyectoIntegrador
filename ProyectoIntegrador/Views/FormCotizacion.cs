@@ -14,14 +14,17 @@ namespace ProyectoIntegrador.Views
         MaterialController materialController = new MaterialController();
         TerrenoController terrenoController = new TerrenoController();
 
+        private List<DetalleCotizacion> detallesCotizacion = new List<DetalleCotizacion>();
         string idSeleccionado = "";
 
         public FormCotizacion()
         {
             InitializeComponent();
+            dgvDetalles.AutoGenerateColumns = false;
             CargarCombos();
             CargarTabla();
         }
+
 
         private void CargarCombos()
         {
@@ -41,19 +44,85 @@ namespace ProyectoIntegrador.Views
             cbListaTerrenos.ValueMember = "Id";
         }
 
-        // Cuando selecciona terreno → carga el volumen en numCantidad
         private void CbListaTerrenos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbListaTerrenos.SelectedItem == null) return;
-
             Terreno terreno = (Terreno)cbListaTerrenos.SelectedItem;
             numCantidad.Value = (decimal)terreno.VolumenCalculado;
         }
 
+        // ── Agregar material ───────────────────────────────────────────────
+        private void btnAgregarMaterial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbListaMateriales.SelectedItem == null)
+                { MessageBox.Show("Selecciona un material."); return; }
+
+                if (numCantidad.Value <= 0)
+                { MessageBox.Show("La cantidad debe ser mayor a 0."); return; }
+
+                Material material = (Material)cbListaMateriales.SelectedItem;
+                double cantidad = (double)numCantidad.Value;
+
+                // Si ya existe el material, sumar cantidad
+                DetalleCotizacion existente = detallesCotizacion
+                    .Find(d => d.MaterialId == material.Id);
+
+                if (existente != null)
+                {
+                    existente.Cantidad += cantidad;
+                    existente.Subtotal = existente.Cantidad * existente.Precio;
+                }
+                else
+                {
+                    detallesCotizacion.Add(new DetalleCotizacion
+                    {
+                        MaterialId = material.Id,
+                        NombreMaterial = material.Nombre,
+                        Cantidad = cantidad,
+                        Precio = material.CostoPorMetroCubico,
+                        Subtotal = cantidad * material.CostoPorMetroCubico
+                    });
+                }
+
+                RefrescarDetalles();
+            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
+        }
+
+        // ── Quitar material ────────────────────────────────────────────────
+        private void btnQuitarMaterial_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalles.CurrentRow == null)
+            { MessageBox.Show("Selecciona un material de la lista."); return; }
+
+            DetalleCotizacion detalle = (DetalleCotizacion)dgvDetalles.CurrentRow.DataBoundItem;
+
+            if (MessageBox.Show("¿Quitar este material?", "Confirmar",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                detallesCotizacion.Remove(detalle);
+                RefrescarDetalles();
+            }
+        }
+
+        private void RefrescarDetalles()
+        {
+            dgvDetalles.DataSource = null;
+            dgvDetalles.DataSource = detallesCotizacion;
+
+            double subtotal = detallesCotizacion.Sum(d => d.Subtotal);
+            double iva = subtotal * 0.19;
+            lblSubtotal.Text = "Subtotal: " + subtotal.ToString("C0");
+            lblIVA.Text = "IVA (19%): " + iva.ToString("C0");
+            lblTotal.Text = "Total: " + (subtotal + iva).ToString("C0");
+        }
+
+        // ── Cargar tabla historial ─────────────────────────────────────────
         private void CargarTabla()
         {
             dgvCotizacion.Rows.Clear();
-
             List<Cotizacion> lista = cotizacionController.Leer();
 
             foreach (Cotizacion c in lista)
@@ -61,9 +130,6 @@ namespace ProyectoIntegrador.Views
                 int fila = dgvCotizacion.Rows.Add();
                 dgvCotizacion.Rows[fila].Cells["colId"].Value = c.Id;
                 dgvCotizacion.Rows[fila].Cells["colCliente"].Value = c.ClienteNombre;
-                dgvCotizacion.Rows[fila].Cells["colMaterial"].Value = c.NombreMaterial;
-                dgvCotizacion.Rows[fila].Cells["colCantidad"].Value = c.Cantidad;
-                dgvCotizacion.Rows[fila].Cells["colPrecio"].Value = c.PrecioUnitario;
                 dgvCotizacion.Rows[fila].Cells["colSubtotal"].Value = c.Subtotal;
                 dgvCotizacion.Rows[fila].Cells["colIVA"].Value = c.IVA;
                 dgvCotizacion.Rows[fila].Cells["colTotal"].Value = c.Total;
@@ -77,71 +143,42 @@ namespace ProyectoIntegrador.Views
             if (e.RowIndex < 0 || dgvCotizacion.CurrentRow == null) return;
 
             idSeleccionado = dgvCotizacion.CurrentRow.Cells["colId"].Value.ToString();
-
-            Cotizacion? cotizacion = cotizacionController.Leer()
+            Cotizacion cotizacion = cotizacionController.Leer()
                 .FirstOrDefault(x => x.Id == idSeleccionado);
-
             if (cotizacion == null) return;
 
             cbListaClientes.SelectedValue = cotizacion.ClienteId;
-            cbListaMateriales.SelectedValue = cotizacion.MaterialId;
-
-            numCantidad.Value = (decimal)cotizacion.Cantidad;
             dateFecha.Value = cotizacion.Fecha;
             checkBoxEstado.Checked = cotizacion.Activa;
+
+            detallesCotizacion = new List<DetalleCotizacion>(cotizacion.Detalles);
+            RefrescarDetalles();
         }
 
+        // ── Guardar ────────────────────────────────────────────────────────
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (cbListaClientes.SelectedItem == null)
-                {
-                    MessageBox.Show("Selecciona un cliente.", "Campo requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                { MessageBox.Show("Selecciona un cliente."); return; }
 
-                if (cbListaTerrenos.SelectedItem == null)
-                {
-                    MessageBox.Show("Selecciona un terreno.", "Campo requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (cbListaMateriales.SelectedItem == null)
-                {
-                    MessageBox.Show("Selecciona un material.", "Campo requerido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (numCantidad.Value <= 0)
-                {
-                    MessageBox.Show("La cantidad debe ser mayor a 0.", "Dato inválido",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                if (detallesCotizacion.Count == 0)
+                { MessageBox.Show("Agrega al menos un material."); return; }
 
                 Cliente cliente = (Cliente)cbListaClientes.SelectedItem;
-                Material material = (Material)cbListaMateriales.SelectedItem;
-                double cantidad = (double)numCantidad.Value;
-                double subtotal = cantidad * material.CostoPorMetroCubico;
+                double subtotal = detallesCotizacion.Sum(d => d.Subtotal);
                 double iva = subtotal * 0.19;
-                double total = subtotal + iva;
 
                 Cotizacion cotizacion = new Cotizacion
                 {
                     Id = idSeleccionado == "" ? Guid.NewGuid().ToString() : idSeleccionado,
                     ClienteId = cliente.Id,
                     ClienteNombre = cliente.Nombre,
-                    MaterialId = material.Id,
-                    NombreMaterial = material.Nombre,
-                    Cantidad = cantidad,
-                    PrecioUnitario = material.CostoPorMetroCubico,
+                    Detalles = new List<DetalleCotizacion>(detallesCotizacion),
                     Subtotal = subtotal,
                     IVA = iva,
-                    Total = total,
+                    Total = subtotal + iva,
                     Fecha = dateFecha.Value,
                     Activa = checkBoxEstado.Checked
                 };
@@ -149,59 +186,55 @@ namespace ProyectoIntegrador.Views
                 if (idSeleccionado == "")
                 {
                     cotizacionController.Guardar(cotizacion);
-                    MessageBox.Show("Cotización guardada correctamente.",
-                        "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cotización guardada correctamente.");
                 }
                 else
                 {
                     cotizacionController.Actualizar(cotizacion);
-                    MessageBox.Show("Cotización actualizada correctamente.",
-                        "Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cotización actualizada correctamente.");
                 }
 
                 Limpiar();
                 CargarTabla();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
 
+        // ── Eliminar ───────────────────────────────────────────────────────
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (idSeleccionado == "")
-                {
-                    MessageBox.Show("Selecciona una cotización de la tabla.", "Sin selección",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                { MessageBox.Show("Selecciona una cotización de la tabla."); return; }
 
                 if (MessageBox.Show("¿Desea eliminar esta cotización?", "Confirmar",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     cotizacionController.Eliminar(idSeleccionado);
-                    MessageBox.Show("Cotización eliminada.", "Eliminado",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Limpiar();
                     CargarTabla();
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            catch (Exception ex) { MessageBox.Show("Error: " + ex.Message); }
         }
 
         private void Limpiar()
         {
             idSeleccionado = "";
+            detallesCotizacion.Clear();
+            dgvDetalles.DataSource = null;
             numCantidad.Value = 0;
             checkBoxEstado.Checked = false;
             dateFecha.Value = DateTime.Now;
+            lblSubtotal.Text = "Subtotal: 0";
+            lblIVA.Text = "IVA (19%): 0";
+            lblTotal.Text = "Total: 0";
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
-    
 }

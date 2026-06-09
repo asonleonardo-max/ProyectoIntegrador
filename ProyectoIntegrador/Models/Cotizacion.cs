@@ -9,14 +9,12 @@ namespace ProyectoIntegrador.Models
         public string Id { get; set; }
         public string ClienteId { get; set; }
         public string ClienteNombre { get; set; }
-        public string MaterialId { get; set; }
-        public string NombreMaterial { get; set; }
-        public double Cantidad { get; set; }
-        public double PrecioUnitario { get; set; }
+        public List<DetalleCotizacion> Detalles { get; set; } = new List<DetalleCotizacion>();
         public double Subtotal { get; set; }
         public double IVA { get; set; }
         public double Total { get; set; }
         public DateTime Fecha { get; set; }
         public bool Activa { get; set; }
+        public string Observacion { get; set; }
     }
 }

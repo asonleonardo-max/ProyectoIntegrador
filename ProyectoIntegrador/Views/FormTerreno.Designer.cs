@@ -45,11 +45,13 @@
             btnCalcular = new PictureBox();
             txtNombre = new TextBox();
             label5 = new Label();
+            btnTerreno3D = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGuardar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnEliminar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnAgregar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnCalcular).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnTerreno3D).BeginInit();
             SuspendLayout();
             // 
             // txtCoordenadaX
@@ -166,9 +168,9 @@
             // lstCoordenadas
             // 
             lstCoordenadas.FormattingEnabled = true;
-            lstCoordenadas.Location = new Point(947, 196);
+            lstCoordenadas.Location = new Point(915, 269);
             lstCoordenadas.Name = "lstCoordenadas";
-            lstCoordenadas.Size = new Size(296, 184);
+            lstCoordenadas.Size = new Size(357, 204);
             lstCoordenadas.TabIndex = 32;
             // 
             // btnAgregar
@@ -219,6 +221,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(1500, 950);
+            Controls.Add(btnTerreno3D);
             Controls.Add(label5);
             Controls.Add(txtNombre);
             Controls.Add(btnCalcular);
@@ -244,6 +247,7 @@
             ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnAgregar).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnCalcular).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnTerreno3D).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -266,6 +270,6 @@
         private PictureBox btnCalcular;
         private TextBox txtNombre;
         private Label label5;
-
+        private PictureBox btnTerreno3D;
     }
 }

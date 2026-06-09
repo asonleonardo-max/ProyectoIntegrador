@@ -25,21 +25,25 @@ namespace ProyectoIntegrador.Views
             string usuario = txtUsuario.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            Usuario usuarioEncontrado = controller.Login(usuario, password);
-
-            if (usuarioEncontrado != null)
+            try
             {
-                MessageBox.Show("Bienvenido " + usuarioEncontrado.Nombre);
+                Usuario usuarioEncontrado = controller.Login(usuario, password);
 
-                FormMenu menu = new FormMenu(usuarioEncontrado);
-
-                menu.Show();
-
-                this.Hide();
+                if (usuarioEncontrado != null)
+                {
+                    MessageBox.Show("Bienvenido " + usuarioEncontrado.Nombre);
+                    FormMenu menu = new FormMenu(usuarioEncontrado);
+                    menu.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (InvalidOperationException ex)
             {
-                MessageBox.Show("Usuario o contraseña incorrectos");
+                MessageBox.Show(ex.Message, "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

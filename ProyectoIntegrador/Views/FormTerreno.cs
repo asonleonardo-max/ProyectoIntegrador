@@ -56,14 +56,13 @@ namespace ProyectoIntegrador.Views
         {
             if (coordenadas.Count < 3)
             {
-                MessageBox.Show("Agrega al menos 3 coordenadas para calcular el volumen.",
+                MessageBox.Show("Agrega al menos 3 coordenadas.",
                     "Coordenadas insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             volumenCalculado = controller.CalcularVolumen(coordenadas);
 
-            // Calcular detalles para mostrar
             double sumaZ = 0;
             double xMin = double.MaxValue, xMax = double.MinValue;
             double yMin = double.MaxValue, yMax = double.MinValue;
@@ -89,28 +88,10 @@ namespace ProyectoIntegrador.Views
                 $"Volumen calculado: {volumenCalculado:N2} m³",
                 "Resultado del cálculo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            /* MostrarGrafica();*/
+            // Abrir gráfica automáticamente
+            FormGrafica formGrafica = new FormGrafica(coordenadas);
+            formGrafica.ShowDialog();
         }
-
-        /* private void MostrarGrafica()
-         {
-             var modelo = new PlotModel { Title = "Terreno - Vista de coordenadas" };
-
-             var serie = new ScatterSeries
-             {
-                 MarkerType = MarkerType.Circle,
-                 MarkerSize = 6,
-                 Title = "Puntos del terreno"
-             };
-
-             foreach (Coordenada c in coordenadas)
-             {
-                 serie.Points.Add(new ScatterPoint(c.X, c.Y, 6, c.Z));
-             }
-
-             modelo.Series.Add(serie);
-             plotView1.Model = modelo;
-         }*/
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -160,7 +141,6 @@ namespace ProyectoIntegrador.Views
             txtNombre.Clear();
             lbVolumen.Text = "Volumen calculado:";
             volumenCalculado = 0;
-            // plotView1.Model = null;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
