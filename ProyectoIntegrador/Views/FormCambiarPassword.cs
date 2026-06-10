@@ -88,12 +88,16 @@ namespace ProyectoIntegrador.Views
             this.WindowState = FormWindowState.Minimized;
         }
 
+        //Centrado 
         private void FormCambiarPassword_Load(object sender, EventArgs e)
         {
+            //lados
             panelContrasena.Left = (this.ClientSize.Width - panelContrasena.Width) / 2;
+            //arruba y abajo
             panelContrasena.Top = (this.ClientSize.Height - panelContrasena.Height) / 2;
         }
 
+        //Mostrar contraseña
         private void btnMostrarContrasena_MouseDown(object sender, MouseEventArgs e)
         {
             txtContrasenaActual.UseSystemPasswordChar = false;

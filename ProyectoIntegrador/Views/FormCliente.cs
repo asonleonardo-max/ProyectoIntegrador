@@ -70,6 +70,8 @@ namespace ProyectoIntegrador.Views
                 Correo = txtCorreo.Text.Trim()
             };
 
+            //validdación duplicidad
+
             List<Cliente> listaExistente = controller.Leer();
             string error = ClienteValidator.Validar(cliente, listaExistente);
 
@@ -108,7 +110,5 @@ namespace ProyectoIntegrador.Views
         {
             this.Close();
         }
-
-        
     }
 }

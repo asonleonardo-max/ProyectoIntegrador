@@ -139,12 +139,6 @@ namespace ProyectoIntegrador.Views
                 CargarUsuarios();
             }
         }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void linkRestablecerContrasena_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (dgvUsuarios.CurrentRow == null)
@@ -164,6 +158,11 @@ namespace ProyectoIntegrador.Views
                 string temporal = controller.RestablecerPassword(id);
                 MessageBox.Show("Contraseña restablecida.\n\nContraseña temporal: [" + temporal + "]");
             }
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

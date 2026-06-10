@@ -29,21 +29,22 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMaterial));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             txtNombre = new TextBox();
             txtCosto = new TextBox();
             label1 = new Label();
             label2 = new Label();
             dgvMateriales = new DataGridView();
-            colNumero = new DataGridViewTextBoxColumn();
-            Id = new DataGridViewTextBoxColumn();
-            colTipoMaterial = new DataGridViewTextBoxColumn();
-            colCosto = new DataGridViewTextBoxColumn();
             btnCerrar = new PictureBox();
             btnEliminar = new PictureBox();
             btnGuardar = new PictureBox();
             label3 = new Label();
+            colNumero = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
+            colTipoMaterial = new DataGridViewTextBoxColumn();
+            colCosto = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvMateriales).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnEliminar).BeginInit();
@@ -103,14 +104,14 @@
             dgvMateriales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvMateriales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvMateriales.Columns.AddRange(new DataGridViewColumn[] { colNumero, Id, colTipoMaterial, colCosto });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvMateriales.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvMateriales.DefaultCellStyle = dataGridViewCellStyle3;
             dgvMateriales.Location = new Point(644, 186);
             dgvMateriales.Margin = new Padding(4, 3, 4, 3);
             dgvMateriales.Name = "dgvMateriales";
@@ -119,36 +120,6 @@
             dgvMateriales.Size = new Size(728, 498);
             dgvMateriales.TabIndex = 6;
             dgvMateriales.CellClick += dgvMateriales_CellClick;
-            // 
-            // colNumero
-            // 
-            colNumero.FillWeight = 30F;
-            colNumero.HeaderText = "N°";
-            colNumero.MinimumWidth = 6;
-            colNumero.Name = "colNumero";
-            colNumero.ReadOnly = true;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "ID";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            Id.Visible = false;
-            // 
-            // colTipoMaterial
-            // 
-            colTipoMaterial.HeaderText = "Material";
-            colTipoMaterial.MinimumWidth = 6;
-            colTipoMaterial.Name = "colTipoMaterial";
-            colTipoMaterial.ReadOnly = true;
-            // 
-            // colCosto
-            // 
-            colCosto.HeaderText = "Costo por m³";
-            colCosto.MinimumWidth = 6;
-            colCosto.Name = "colCosto";
-            colCosto.ReadOnly = true;
             // 
             // btnCerrar
             // 
@@ -196,6 +167,39 @@
             label3.Size = new Size(356, 44);
             label3.TabIndex = 29;
             label3.Text = "Registro Materiales";
+            // 
+            // colNumero
+            // 
+            colNumero.FillWeight = 30F;
+            colNumero.HeaderText = "N°";
+            colNumero.MinimumWidth = 6;
+            colNumero.Name = "colNumero";
+            colNumero.ReadOnly = true;
+            // 
+            // Id
+            // 
+            Id.HeaderText = "ID";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            // 
+            // colTipoMaterial
+            // 
+            colTipoMaterial.HeaderText = "Material";
+            colTipoMaterial.MinimumWidth = 6;
+            colTipoMaterial.Name = "colTipoMaterial";
+            colTipoMaterial.ReadOnly = true;
+            // 
+            // colCosto
+            // 
+            dataGridViewCellStyle2.Format = "C0";
+            dataGridViewCellStyle2.NullValue = null;
+            colCosto.DefaultCellStyle = dataGridViewCellStyle2;
+            colCosto.HeaderText = "Costo por m³";
+            colCosto.MinimumWidth = 6;
+            colCosto.Name = "colCosto";
+            colCosto.ReadOnly = true;
             // 
             // FormMaterial
             // 

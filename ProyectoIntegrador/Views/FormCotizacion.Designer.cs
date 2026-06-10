@@ -65,16 +65,16 @@
             label4 = new Label();
             cbListaTerrenos = new ComboBox();
             dgvDetalles = new DataGridView();
-            colDetMaterialId = new DataGridViewTextBoxColumn();
-            colDetMaterial = new DataGridViewTextBoxColumn();
-            colDetCantidad = new DataGridViewTextBoxColumn();
-            colDetPrecio = new DataGridViewTextBoxColumn();
-            colDetSubtotal = new DataGridViewTextBoxColumn();
             lblSubtotal = new Label();
             lblIVA = new Label();
             lblTotal = new Label();
             btnAgregarMaterial = new PictureBox();
             btnQuitarMaterial = new PictureBox();
+            colDetMaterialId = new DataGridViewTextBoxColumn();
+            colDetMaterial = new DataGridViewTextBoxColumn();
+            colDetCantidad = new DataGridViewTextBoxColumn();
+            colDetPrecio = new DataGridViewTextBoxColumn();
+            colDetSubtotal = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvCotizacion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCantidad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnGuardar).BeginInit();
@@ -265,11 +265,11 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Yu Gothic UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(83, 490);
+            label3.Location = new Point(66, 490);
             label3.Name = "label3";
-            label3.Size = new Size(113, 31);
+            label3.Size = new Size(151, 31);
             label3.TabIndex = 16;
-            label3.Text = "Cantidad:";
+            label3.Text = "Terreno (m³):";
             // 
             // numCantidad
             // 
@@ -372,57 +372,6 @@
             dgvDetalles.Size = new Size(578, 198);
             dgvDetalles.TabIndex = 32;
             // 
-            // colDetMaterialId
-            // 
-            colDetMaterialId.DataPropertyName = "MaterialId";
-            colDetMaterialId.HeaderText = "MaterialId";
-            colDetMaterialId.MinimumWidth = 6;
-            colDetMaterialId.Name = "colDetMaterialId";
-            colDetMaterialId.Visible = false;
-            colDetMaterialId.Width = 125;
-            // 
-            // colDetMaterial
-            // 
-            colDetMaterial.DataPropertyName = "NombreMaterial";
-            colDetMaterial.FillWeight = 86.95653F;
-            colDetMaterial.HeaderText = "Material";
-            colDetMaterial.MinimumWidth = 6;
-            colDetMaterial.Name = "colDetMaterial";
-            colDetMaterial.Width = 125;
-            // 
-            // colDetCantidad
-            // 
-            colDetCantidad.DataPropertyName = "Cantidad";
-            colDetCantidad.FillWeight = 97.0332F;
-            colDetCantidad.HeaderText = "Cantidad";
-            colDetCantidad.MinimumWidth = 6;
-            colDetCantidad.Name = "colDetCantidad";
-            colDetCantidad.Width = 139;
-            // 
-            // colDetPrecio
-            // 
-            colDetPrecio.DataPropertyName = "Precio";
-            dataGridViewCellStyle8.Format = "C0";
-            dataGridViewCellStyle8.NullValue = null;
-            colDetPrecio.DefaultCellStyle = dataGridViewCellStyle8;
-            colDetPrecio.FillWeight = 104.919281F;
-            colDetPrecio.HeaderText = "Precio";
-            colDetPrecio.MinimumWidth = 6;
-            colDetPrecio.Name = "colDetPrecio";
-            colDetPrecio.Width = 151;
-            // 
-            // colDetSubtotal
-            // 
-            colDetSubtotal.DataPropertyName = "Subtotal";
-            dataGridViewCellStyle9.Format = "C0";
-            dataGridViewCellStyle9.NullValue = null;
-            colDetSubtotal.DefaultCellStyle = dataGridViewCellStyle9;
-            colDetSubtotal.FillWeight = 111.091019F;
-            colDetSubtotal.HeaderText = "Subtotal";
-            colDetSubtotal.MinimumWidth = 6;
-            colDetSubtotal.Name = "colDetSubtotal";
-            colDetSubtotal.Width = 160;
-            // 
             // lblSubtotal
             // 
             lblSubtotal.AutoSize = true;
@@ -476,6 +425,57 @@
             btnQuitarMaterial.TabIndex = 37;
             btnQuitarMaterial.TabStop = false;
             btnQuitarMaterial.Click += btnQuitarMaterial_Click;
+            // 
+            // colDetMaterialId
+            // 
+            colDetMaterialId.DataPropertyName = "MaterialId";
+            colDetMaterialId.HeaderText = "MaterialId";
+            colDetMaterialId.MinimumWidth = 6;
+            colDetMaterialId.Name = "colDetMaterialId";
+            colDetMaterialId.Visible = false;
+            colDetMaterialId.Width = 125;
+            // 
+            // colDetMaterial
+            // 
+            colDetMaterial.DataPropertyName = "NombreMaterial";
+            colDetMaterial.FillWeight = 86.95653F;
+            colDetMaterial.HeaderText = "Material";
+            colDetMaterial.MinimumWidth = 6;
+            colDetMaterial.Name = "colDetMaterial";
+            colDetMaterial.Width = 125;
+            // 
+            // colDetCantidad
+            // 
+            colDetCantidad.DataPropertyName = "Cantidad";
+            colDetCantidad.FillWeight = 97.0332F;
+            colDetCantidad.HeaderText = "Terreno (m³)";
+            colDetCantidad.MinimumWidth = 6;
+            colDetCantidad.Name = "colDetCantidad";
+            colDetCantidad.Width = 139;
+            // 
+            // colDetPrecio
+            // 
+            colDetPrecio.DataPropertyName = "Precio";
+            dataGridViewCellStyle8.Format = "C0";
+            dataGridViewCellStyle8.NullValue = null;
+            colDetPrecio.DefaultCellStyle = dataGridViewCellStyle8;
+            colDetPrecio.FillWeight = 104.919281F;
+            colDetPrecio.HeaderText = "Precio";
+            colDetPrecio.MinimumWidth = 6;
+            colDetPrecio.Name = "colDetPrecio";
+            colDetPrecio.Width = 151;
+            // 
+            // colDetSubtotal
+            // 
+            colDetSubtotal.DataPropertyName = "Subtotal";
+            dataGridViewCellStyle9.Format = "C0";
+            dataGridViewCellStyle9.NullValue = null;
+            colDetSubtotal.DefaultCellStyle = dataGridViewCellStyle9;
+            colDetSubtotal.FillWeight = 111.091019F;
+            colDetSubtotal.HeaderText = "Subtotal";
+            colDetSubtotal.MinimumWidth = 6;
+            colDetSubtotal.Name = "colDetSubtotal";
+            colDetSubtotal.Width = 160;
             // 
             // FormCotizacion
             // 

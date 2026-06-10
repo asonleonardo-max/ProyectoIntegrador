@@ -33,10 +33,19 @@ namespace ProyectoIntegrador.Views
         private void CargarDgv()
         {
             dgvFactura.Rows.Clear();
+
             foreach (Factura f in facturaController.Leer())
-                dgvFactura.Rows.Add(f.Id, f.NumeroFactura, f.Cotizacion.ClienteNombre,
+            {
+                dgvFactura.Rows.Add(
+                    f.Id,
+                    f.NumeroFactura,
+                    f.Cotizacion.ClienteNombre,
                     string.Join(", ", f.Cotizacion.Detalles.Select(d => d.NombreMaterial)),
-                    f.Fecha.ToString("dd/MM/yyyy"), f.Activa);
+                    f.Cotizacion.Total.ToString("C"),
+                    f.Fecha.ToString("dd/MM/yyyy"),
+                    f.Activa
+                );
+            }
 
             dgvFactura.ClearSelection();
         }
@@ -113,16 +122,27 @@ namespace ProyectoIntegrador.Views
             if (dtpFiltroFecha.Value.Date != DateTime.Today)
                 fecha = dtpFiltroFecha.Value.Date;
 
-            if (cbFiltroEstado.SelectedItem?.ToString() == "Activa") activa = true;
-            else if (cbFiltroEstado.SelectedItem?.ToString() == "Inactiva") activa = false;
+            if (cbFiltroEstado.SelectedItem?.ToString() == "Activa")
+                activa = true;
+            else if (cbFiltroEstado.SelectedItem?.ToString() == "Inactiva")
+                activa = false;
 
             List<Factura> lista = facturaController.Filtrar(cliente, fecha, activa);
 
             dgvFactura.Rows.Clear();
+
             foreach (Factura f in lista)
-                dgvFactura.Rows.Add(f.Id, f.NumeroFactura, f.Cotizacion.ClienteNombre,
+            {
+                dgvFactura.Rows.Add(
+                    f.Id,
+                    f.NumeroFactura,
+                    f.Cotizacion.ClienteNombre,
                     string.Join(", ", f.Cotizacion.Detalles.Select(d => d.NombreMaterial)),
-                    f.Fecha.ToString("dd/MM/yyyy"), f.Activa);
+                    f.Cotizacion.Total.ToString("C"),
+                    f.Fecha.ToString("dd/MM/yyyy"),
+                    f.Activa
+                );
+            }
 
             dgvFactura.ClearSelection();
         }
@@ -149,17 +169,17 @@ namespace ProyectoIntegrador.Views
 
         private void GenerarPDF(Factura f, string ruta)
         {
+            //fuentes 
             var bold = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
             var normal = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
-            using PdfWriter writer = new PdfWriter(ruta);
-            using PdfDocument pdf = new PdfDocument(writer);
-            using Document doc = new Document(pdf);
+            using PdfWriter writer = new PdfWriter(ruta);       //crea el archivo PDF o ruta 
+            using PdfDocument pdf = new PdfDocument(writer);    //crea el documento
+            using Document doc = new Document(pdf);             //crea el documento visual
 
             doc.Add(new Paragraph("FACTURA").SetFont(bold).SetFontSize(20));
             doc.Add(new Paragraph($"N° Factura: {f.NumeroFactura}").SetFont(normal));
             doc.Add(new Paragraph($"Fecha: {f.Fecha:dd/MM/yyyy}").SetFont(normal));
-            doc.Add(new Paragraph($"Estado: {(f.Activa ? "Activa" : "Inactiva")}").SetFont(normal));
             doc.Add(new Paragraph(" "));
             doc.Add(new Paragraph("DATOS DEL CLIENTE").SetFont(bold));
             doc.Add(new Paragraph($"Cliente: {f.Cotizacion.ClienteNombre}").SetFont(normal));

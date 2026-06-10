@@ -12,8 +12,6 @@ namespace ProyectoIntegrador.Views
 {
     public partial class FormMenu : Form
     {
-        private string rol;
-
         private Form formularioActivo = null;
 
         private void AbriFormulario(Form formularioHijo)
@@ -22,7 +20,6 @@ namespace ProyectoIntegrador.Views
             if (formularioActivo != null)
             {
                 formularioActivo.Dispose();
-
             }
 
             formularioActivo = formularioHijo;
@@ -80,16 +77,13 @@ namespace ProyectoIntegrador.Views
             FormLogin login = new FormLogin();
 
             login.Show();
-
             this.Close();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
-            //MessageBox.Show(this.Height.ToString());
             int y = this.Bottom - this.btnCerrarSeccion.Size.Height - Barra.Size.Height;
             btnCerrarSeccion.Location = new Point(0, y);
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

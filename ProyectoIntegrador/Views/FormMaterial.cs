@@ -48,7 +48,7 @@ namespace ProyectoIntegrador.Views
             }
             else
             {
-                controller.Actualizar(material); // ✅ Actualiza en lugar de duplicar
+                controller.Actualizar(material);
                 MessageBox.Show("Material actualizado");
             }
 
@@ -58,7 +58,6 @@ namespace ProyectoIntegrador.Views
 
 
         // Eliminar 
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (idSeleccionado == "")
@@ -76,7 +75,6 @@ namespace ProyectoIntegrador.Views
                 CargarMateriales();
             }
         }
-
 
         private void Limpiar()
         {
@@ -125,7 +123,5 @@ namespace ProyectoIntegrador.Views
         {
             this.Close();
         }
-
-        
     }
 }

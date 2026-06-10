@@ -179,6 +179,7 @@
             linkRestablecerContrasena.TabIndex = 37;
             linkRestablecerContrasena.TabStop = true;
             linkRestablecerContrasena.Text = "¿Desea restablecer su contraseña?";
+            linkRestablecerContrasena.LinkClicked += linkRestablecerContrasena_LinkClicked;
             // 
             // pictureBox5
             // 
